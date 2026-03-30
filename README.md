@@ -8,6 +8,12 @@ Comandos:
   * south
   * west
   * east
+
+    
   Haverá na interface um espaço para digitar os comandos.
 Objetivo:
   Haverá paredes e limites no mapa, evite-os e chegue ao objetivo final que será representado por um bloco no mapa de cor única.
+
+
+Foco do projeto: É ter 100% cobertura de código nos testes automatizados, o jogo possui diversos tratamentos de entrada e os testes provam sua integridade
+e resiliência.
