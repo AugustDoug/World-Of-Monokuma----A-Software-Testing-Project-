@@ -63,7 +63,7 @@ public class GameTest {
     }
     
     // Teste de Fronteira
-    // Partições mapa de 1 bloco | mapa 2x2 | mapa 3x3 (player no meio) 
+    // Partições mapa de 1 bloco | mapa 2x2 | mapa 3x3 (player no meio = simula mapa grande)
 
     @Test
     @DisplayName("Teste de fronteira: Player não deve conseguir se mover pois o mapa é 1x1")
@@ -107,7 +107,8 @@ public class GameTest {
             {0,0,0},
             {0,0,0}
         };
-
+        jogo.x = 1;
+        jogo.y = 1;
         jogo.mapa = map;
     
         boolean resultado = jogo.movePlayer("east");
