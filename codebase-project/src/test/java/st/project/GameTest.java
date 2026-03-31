@@ -100,7 +100,7 @@ public class GameTest {
     @Test
     @DisplayName("Teste de fronteira: Player deve conseguir se mover para Leste")
     void GameMap3bloco() {
-        //Player começa [0][0] logo não consegue ir para leste e norte 
+        //Player começa [1][1] logo não consegue ir para leste e norte 
         
         int[][] map = {
             {0,0,0},
@@ -118,7 +118,7 @@ public class GameTest {
     // Teste estrutural - Caminhos diferentes
     
     @Test
-    @DisplayName("Teste de fronteira: Player não deve se mover na direção de um limite acima")
+    @DisplayName("Teste Estrutural: Player não deve se mover na direção de um limite acima")
     void GameMoveLimiteNorthInsucesso() {
         // pos [0][0] caso Go North encontrará um limite acima ( nwx < 0)
         
@@ -127,7 +127,7 @@ public class GameTest {
     }
 
     @Test
-    @DisplayName("Teste de fronteira: Player não deve se mover na direção de um limite abaixo")
+    @DisplayName("Teste Estrutural: Player não deve se mover na direção de um limite abaixo")
     void GameMoveLimiteSouthInsucesso() {
         // pos [0][0] caso Go South encontrará um limite abaixo ( nwx > mapa.lenght)
         jogo.x = 4;
@@ -136,7 +136,7 @@ public class GameTest {
     }
 
     @Test
-    @DisplayName("Teste de fronteira: Player não deve se mover na direção de um limite a esquerda")
+    @DisplayName("Teste Estrutural: Player não deve se mover na direção de um limite a esquerda")
     void GameMoveLimiteWestInsucesso() {
         // pos [0][0] caso Go North encontrará um limite a esquerda ( nwy < 0)
         
@@ -145,7 +145,7 @@ public class GameTest {
     }
 
     @Test
-    @DisplayName("Teste de fronteira: Player não deve se mover na direção de um limite a direita")
+    @DisplayName("Teste Estrutural: Player não deve se mover na direção de um limite a direita")
     void GameMoveLimiteEastInsucesso() {
         // pos [0][4] caso Go East encontrará um limite a esquerda ( nwy > mapa[0].lenght)
         jogo.y = 4;
