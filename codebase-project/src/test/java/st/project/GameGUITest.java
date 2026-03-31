@@ -138,4 +138,16 @@ public class GameGUITest {
         String resultado = jogoGUI.processarComando("go north go south");
         assertThat(resultado).isNull();
     }
+
+    //Teste Estrutural
+    
+    @Test
+    @DisplayName("Teste Estrutural: Listener não deve permitir null")
+    void deveDispararActionListenerNull() {
+        
+
+        boolean resultado = jogoGUI.executarMovimento(null);
+        assertThat(resultado).isFalse();
+        
+    }
 }

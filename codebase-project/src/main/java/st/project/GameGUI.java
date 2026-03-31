@@ -42,13 +42,7 @@ public class GameGUI extends JFrame {
 
         configurarInput();
         
-        inputField.addActionListener(e -> {
-            String comando = inputField.getText();
-            inputField.setText("");
-
-            executarMovimento(processarComando(comando));
-            
-        });
+        
 
         mapaPanel = new JPanel(new GridLayout(3, 3));
         int linhas = game.getMapa().length;
@@ -95,7 +89,7 @@ public class GameGUI extends JFrame {
         atualizarMapa();
 
         if (!moved) {
-            print("🚫 Não pode ir nessa direção!");
+            print("Não pode ir nessa direção!");
             temp = false;
         } else {
             print("Movendo para " + direcao);
@@ -103,7 +97,7 @@ public class GameGUI extends JFrame {
         }
 
         if (venceu(game.venceu())) {
-            print("🎉 Você venceu!");
+            print(" Você venceu!");
             return true;
         }else{
             return temp;
@@ -124,20 +118,20 @@ public class GameGUI extends JFrame {
         print("> " + input);
 
         if (input == null || input.trim().isEmpty()) {
-            print("❌ Comando vazio!");
+            print(" Comando vazio!");
             return null;
         }
 
         String[] partes = input.trim().toLowerCase().split(" ");
 
         if (partes.length != 2) {
-            print("❌ Comando inválido!");
+            print(" Comando inválido!");
             mostrarAjuda();
             return null;
         }
 
         if (!partes[0].equals("go")) {
-            print("❌ Use o comando 'go'");
+            print(" Use o comando 'go'");
             mostrarAjuda();
             return null;
         }
@@ -145,12 +139,12 @@ public class GameGUI extends JFrame {
         String direcao = partes[1];
 
         if (!direcaoValida(direcao)) {
-            print("❌ Direção inválida!");
+            print(" Direção inválida!");
             mostrarAjuda();
             return null;
         }
 
-        return direcao; // ✅ comando válido
+        return direcao; // direção válida
     }
 
 
