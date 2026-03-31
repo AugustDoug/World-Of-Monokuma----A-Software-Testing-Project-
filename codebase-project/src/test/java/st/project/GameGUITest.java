@@ -17,7 +17,7 @@ public class GameGUITest {
         
 
         jogoGUI.getInputField().setText("go south");
-        jogoGUI.getInputField().postActionEvent(); // 🔥 simula ENTER
+        jogoGUI.getInputField().postActionEvent(); //  simula ENTER
 
         String resultado = jogoGUI.processarComando("go north");
         assertThat(resultado).isEqualTo("north");
