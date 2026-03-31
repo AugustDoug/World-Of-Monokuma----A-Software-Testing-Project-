@@ -31,23 +31,23 @@ public class Game {
             default: return false;
         }
 
-        // 🚫 limites
+        //  limites
         if (newX < 0 || newX >= mapa.length || newY < 0 || newY >= mapa[0].length) {
             return false;
         }
 
-        // 🚫 parede
+        //  parede
         if (mapa[newX][newY] == 1) {
             return false;
         }
 
-        // ✅ move
+        //  move
         x = newX;
         y = newY;
         return true;
     }
 
-    // 📍 posição
+    //  posição
     public int getX() {
         return x;
     }
@@ -56,12 +56,12 @@ public class Game {
         return y;
     }
 
-    // 🗺️ mapa
+    //  mapa
     public int[][] getMapa() {
         return mapa;
     }
 
-    // 🎯 vitória
+    //  vitória
     public boolean venceu() {
         return mapa[x][y] == 2;
     }
