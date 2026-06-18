@@ -136,12 +136,13 @@ public class Game {
         // saída
         if(valor == 2) {
 
-            // venceu jogo
             if(nivel == 3) {
 
                 player.adicionarPontos(1000);
 
                 venceu();
+
+                return;
             }
 
             nivel++;
