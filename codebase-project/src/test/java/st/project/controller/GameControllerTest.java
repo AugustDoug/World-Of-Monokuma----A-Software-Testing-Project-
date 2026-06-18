@@ -2,6 +2,9 @@ package st.project.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.File;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,6 +33,12 @@ public class GameControllerTest {
 
         controller =
             new GameController(game);
+    }
+    @AfterEach
+    void limparArquivos() {
+
+        new File("usuarios.json").delete();
+        
     }
 
     // =====================================
