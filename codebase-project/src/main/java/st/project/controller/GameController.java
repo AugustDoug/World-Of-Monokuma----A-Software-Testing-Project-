@@ -41,9 +41,18 @@ public class GameController {
         boolean moved =
             game.movePlayer(direcao);
 
+
         if(!moved) {
+
             return "Não pode mover!";
         }
+
+
+        if(game.venceu) {
+
+            return "VENCEU";
+        }
+
 
         return "Movendo para " + direcao;
     }

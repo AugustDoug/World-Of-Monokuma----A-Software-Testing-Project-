@@ -36,6 +36,7 @@ public class Game {
 
     public boolean movePlayer(String direction) {
 
+        
         int newX = player.getX();
         int newY = player.getY();
 
@@ -78,9 +79,7 @@ public class Game {
         // move
         player.setPosicao(newX, newY);
 
-        player.adicionarPontos(10);
-
-        usuario.adicionarPontuacao(10);
+        
 
         verificarEventos();
 
@@ -139,7 +138,7 @@ public class Game {
             if(nivel == 3) {
 
                 player.adicionarPontos(1000);
-
+                usuario.adicionarPontuacao(1000);
                 venceu();
 
                 return;
@@ -148,7 +147,7 @@ public class Game {
             nivel++;
 
             player.adicionarPontos(500);
-
+            usuario.adicionarPontuacao(500);
             carregarNivel();
         }
     }

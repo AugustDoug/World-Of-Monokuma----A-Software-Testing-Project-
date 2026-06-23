@@ -104,13 +104,13 @@ public class GameTest {
     // =========================================
 
     @Test
-    @DisplayName("Estrutural: Deve aumentar pontuação ao mover")
+    @DisplayName("Estrutural: Nao Deve aumentar pontuação ao mover")
     void deveAdicionarPontuacao() {
 
         jogo.movePlayer("east");
 
         assertThat(jogo.getPontuacao())
-            .isEqualTo(10);
+            .isEqualTo(0);
     }
 
     @Test
@@ -299,15 +299,6 @@ public class GameTest {
             );
     }
 
-    @Test
-    @DisplayName("Estrutural: Usuário deve ganhar pontos")
-    void usuarioDeveGanharPontuacao() {
-
-        jogo.movePlayer("east");
-
-        assertThat(user.getPontuacao())
-            .isEqualTo(10);
-    }
 
     @Test
     @DisplayName("Estrutural: Deve vencer jogo no nível 3")

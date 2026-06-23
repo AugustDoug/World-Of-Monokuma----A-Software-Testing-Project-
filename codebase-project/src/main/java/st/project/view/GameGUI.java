@@ -218,7 +218,7 @@ public class GameGUI extends JFrame {
 
         inputField.setText("");
 
-        // comando ranking
+
         if(comando.equalsIgnoreCase("ranking")) {
 
             mostrarRanking(manager);
@@ -226,15 +226,35 @@ public class GameGUI extends JFrame {
             return;
         }
 
+
         String resposta =
             controller.processarComando(comando);
 
+
         print(resposta);
+
 
         atualizarMapa();
 
         atualizarStatus();
-    }   
+
+        manager.salvarPontuacoes();
+
+        if(game.venceu) {
+
+
+            manager.salvarPontuacoes();
+
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Parabéns! Você venceu o jogo!"
+            );
+
+
+            dispose();
+        }
+    }
 
     private void atualizarStatus() {
 

@@ -74,7 +74,7 @@ public class SystemTest {
         assertThat(user)
             .isNotNull();
     }
-
+    
     @Test
     void devePassarParaNivel2() {
 

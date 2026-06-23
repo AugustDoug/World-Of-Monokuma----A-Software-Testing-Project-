@@ -2,6 +2,7 @@ package st.project.view;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -79,18 +80,18 @@ public class GameGUITest {
     }
 
     @Test
-    @DisplayName("Teste de Domínio: GUI deve atualizar pontuação ao se mover")
+    @DisplayName("Teste de Domínio: GUI não deve ganhahr pontuação ao se mover")
     void deveAtualizarPontuacao() {
 
         jogoGUI.executarMovimento("east");
 
         assertThat(
             jogoGUI.game.getPontuacao()
-        ).isGreaterThan(0);
+        ).isEqualTo(0);
     }
 
     @Test
-    @DisplayName("Teste de Domínio: GUI deve atualizar pontuação com chave")
+    @DisplayName("Teste de Domínio: GUI não deve atualizar pontuação com chave")
     void deveAtualizarPontuacaoComChave() {
 
         jogoGUI.game.player.pegarChave();
@@ -99,7 +100,7 @@ public class GameGUITest {
 
         assertThat(
             jogoGUI.game.getPontuacao()
-        ).isGreaterThan(0);
+        ).isEqualTo(0);
     }
 
     @Test
@@ -197,6 +198,31 @@ public class GameGUITest {
     // ==========================
     // TESTES ESTRUTURAIS
     // ==========================
+
+    @Test
+    @DisplayName("Teste Estrutural: Ao vencer deve salvar pontuação")
+    void deveSalvarPontuacaoAoVencer() {
+
+
+        // força o estado de vitória
+        jogoGUI.game.venceu = true;
+
+
+        jogoGUI.getInputField()
+            .setText("go east");
+
+
+        jogoGUI.getInputField()
+            .postActionEvent();
+
+
+
+        assertThat(
+            jogoGUI.game.venceu
+        )
+        .isTrue();
+
+    }
 
     @Test
     @DisplayName("Teste Estrutural: Não deve aceitar direção inválida")

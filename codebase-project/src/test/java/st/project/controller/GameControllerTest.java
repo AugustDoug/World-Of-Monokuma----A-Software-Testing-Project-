@@ -79,6 +79,44 @@ public class GameControllerTest {
     // =====================================
 
     @Test
+    @DisplayName("Teste Estrutural: Controller deve retornar VENCEU quando jogo terminar")
+    void deveRetornarVenceuQuandoGameVence() {
+
+
+        Game game =
+            new Game(
+                new User(
+                    "login",
+                    "senha",
+                    "avatar",
+                    false
+                )
+            );
+
+
+        GameController controller =
+            new GameController(game);
+
+
+
+        // força estado de vitória
+        game.venceu = true;
+
+
+
+        String resposta =
+            controller.processarComando(
+                "go east"
+            );
+
+
+
+        assertThat(resposta)
+            .isEqualTo("VENCEU");
+
+    }
+
+    @Test
     @DisplayName("Teste Estrutural: input null")
     void inputNull() {
 
